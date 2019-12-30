@@ -1,0 +1,10 @@
+CUCH/Cuchillo/arma/0/15/15
+PTL01/Pistola/arma/10/60/20
+ESC01/Escopeta/arma/30/25/30
+BLL01/Ballesta/arma/68/30/20
+BOT01/Botiquin/accesorio/50/0/50
+POC01/Pocima/accesorio/90/0/25
+VEN01/Venda/accesorio/60/0/25
+MASH01/Marshmello/skin/150/0/0
+P90/Subfusil/arma/150/25/25
+PSTLDUAL/Pistolas Duales/arma/70/30/15

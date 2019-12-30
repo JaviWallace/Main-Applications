@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1559682136 source:c:\users\javi wallace\documents\principal\programacion\c\enigma - def\enigma\enigma.c
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+

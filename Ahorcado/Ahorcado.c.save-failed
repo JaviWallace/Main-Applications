@@ -1,0 +1,77 @@
+#include <stdio.h>
+#define N 25550
+#define X 30
+#define I 10
+#include <string.h>
+#include <conio.h>
+void pantalla (char [], char[]);
+void juego(char[], char[]);
+int comprobar(char*, char*, char);
+int main()
+{
+
+    srand (time(NULL));
+    int n;
+    do{
+        n = rand() - (rand()% (N-1))* (rand() % 11) ;
+    } while(n > N || n < 0);
+
+    int i;
+    FILE *f;
+    char cad[X], conocida[X];
+    for (i = 0; i < X; i++) conocida[i] = '\0';
+
+    f = fopen("palabras.txt", "r");
+    for(i = 0; i < n; i++)
+    {
+        fscanf(f,"%s\n", cad);
+    }
+    printf("%i   -   %s",n, cad);
+    juego(cad, conocida);
+}
+
+
+void pantalla (char cad[], char conocida[]){
+int longitud = strlen(cad), i;
+clrscr();
+puts("");
+puts("      q w e r t y u i o p");
+puts("       a s d f g h j k l ");
+puts("         z x c v b n m");
+puts("");
+printf("        ");
+for (i = 0; i < longitud; i++) {
+        if (conocida[i] != '\0') printf("%c ", conocida[i]);
+        else printf("_ ");
+
+}
+puts("");
+puts("Introduce caracter:");
+}
+void juego( char cad[], char conocida[]){
+    int intentos = I;
+    char c;
+    while (intentos > 0 && strcmp(cad, conocida) != 0){
+        pantalla (cad, conocida);
+        fflush(stdin);
+        scanf("%c", &c);
+        fflush(stdin);
+        if(comprobar(cad, conocida, c) != 1) --intentos;
+    }
+    if(strcmp(cad, conocida) == 0) {
+        puts("");
+        puts("Has ganado!");
+    }else puts("Has perdido :(");
+}
+int comprobar(char *cad, char *conocida, char c){
+int res = 0, i, len;
+len = strlen(cad);
+    for (i = 0; i < len; i++){
+        if (c == *(cad + i)){
+            res = 1;
+            *(conocida + i) = c;
+        }
+    }
+
+
+}

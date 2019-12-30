@@ -1,0 +1,328 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <windows.h>
+
+
+#define MINPOS 21
+#define MODPOS 6
+#define DIVPOS 14
+#define CESAR 4
+
+int cifrado_cesar(int );
+int cifrado(int , int );
+int descifrado_cesar(int , int );
+int des_cifrado(int , int , int , int , int , int );
+void guardar_vec(int *, int );
+int cargar_bueno(int * );
+void cifrar(int *, int );
+void valores(int *, int *, int *, int *);
+void guardar_datos(int *, int *);
+int cargar(int *);
+void menu(int *, int *);
+void anadir_datos(int *, int *);
+
+int main()
+{
+    int vec_c[2000], i;
+    int tam_v;
+    //tam_v = cargar_bueno(vec_c);
+    //cifrar(vec_c, tam_v);           // Aqui guardamos el bueno cifrado
+
+    tam_v = cargar(vec_c);
+
+
+    menu(vec_c, &tam_v);
+}
+
+void menu(int *vec_c, int *tam_v)
+{
+    int aux[500];
+    char string[500];
+    char c[10];
+    int n, i;
+    static int minpos = 1, divpos = 1, cesar = 1, modpos = 1;
+    do
+    {
+        system("cls");
+        //printf("%i,%i,%i,%i     tam_v = %i\n", minpos, modpos, divpos, cesar, *tam_v);
+        puts("Que quieres hacer?");
+        puts("1 .- Introducir valores de cifrado");
+        puts("2 .- Introducir enteros");
+        puts("3 .- Probar");
+        puts("4 .- Salir");
+        puts("Seleccione la opcion");
+        fflush(stdin);
+        scanf("%i", &n);
+    }while(n < 1 || n > 4);
+    switch(n){
+    case 1:
+        valores(&minpos, &modpos, &divpos, &cesar);
+        menu(vec_c, tam_v);
+        break;
+    case 2:
+        guardar_datos(vec_c, tam_v);
+        menu(vec_c, tam_v);
+        break;
+    case 3:
+
+        for(i = 0; i < *tam_v; i++){
+            aux[i] = des_cifrado(vec_c[i],i,minpos,modpos,divpos,cesar);
+            string[i] = aux[i];
+        }
+        string[i] = '\0';
+        system("cls");
+        printf("%s", string);
+        fflush(stdin);
+        gets(c);
+        fflush(stdin);
+        menu(vec_c, tam_v);
+        break;
+    case 4:
+        break;
+    }
+    guardar_vec(vec_c, *tam_v);
+}
+
+int cargar(int *vec_c){
+    int tam_v = 0, aux,i;
+    char c;
+
+    FILE *farchivo;
+    farchivo = fopen("cif.txt", "r");
+    while((c=fgetc(farchivo)) != EOF )      /* Mientras no llegue el final del archivo */
+        {
+            if (c == '\n'){                      /* Cada salto de linea es una fila nueva*/
+                tam_v++;
+            }
+        }
+    fclose(farchivo);
+    farchivo = fopen("cif.txt", "r");
+    for(i = 0; i < tam_v; i++){
+        fscanf(farchivo,"%i\n", &aux);
+        vec_c[i] = aux;
+    }
+    fclose(farchivo);
+
+    return tam_v;
+}
+
+void guardar_datos(int *vec_c, int *tam_v){
+int n, h, aux, i;
+char c[10], caux;
+
+do{
+    system("cls");
+
+
+    puts("Que quieres hacer");
+    puts("1 .- Ver serie de enteros actual");
+    puts("2 .- Modificar serie de enteros actual");
+    puts("3 .- Borrar serie de enteros y volver a introducir");
+    puts("4 .- Anadir mas enteros");
+    puts("5 .- Eliminar los n ultimos enteros");
+    puts("6 .- Salir");
+    puts("Selecciona la opcion");
+    fflush(stdin);
+    scanf("%i", &n);
+}while(n<1 || n > 6);
+
+switch(n){
+case 1:
+    system("cls");
+    for(i = 0; i < *tam_v; i++){
+        printf("%i .- %i\n", i+1, vec_c[i]);
+    }
+    fflush(stdin);
+    gets(c);
+    guardar_datos(vec_c, tam_v);
+    break;
+case 2:
+    system("cls");
+    for(i = 0; i < *tam_v; i++){
+        printf("%i .- %i\n", i+1, vec_c[i]);
+    }
+    printf("%i .- Para no modificar\n", *tam_v+1);
+    do{
+        puts("Que elemento deseas cambiar");
+        puts("Selecciona su posicion");
+        scanf("%i", &h);
+    }while (h < 1 || h > *tam_v+1);
+    if(h != *tam_v+1){
+    h--;
+    system("cls");
+    printf("Introduce el nuevo valor para: %i .- %i\n", h+1, vec_c[h]);
+    fflush(stdin);
+    scanf("%i", &aux);
+    vec_c[h] = aux;
+    }
+    guardar_datos(vec_c,tam_v);
+    break;
+case 3:
+    puts("Vas a ir introduciendo enteros, cuando no quieras mas pon 12121212");
+    i = 0;
+    *tam_v = 0;
+
+    do{
+        printf("%i .- ", i + 1);
+        fflush(stdin);
+        scanf("%i", &aux);
+        if(aux != 12121212){vec_c[i] = aux;
+        *tam_v += 1;
+        i++;
+        }
+        fflush(stdin);
+    }while (aux != 12121212);
+    guardar_datos(vec_c, tam_v);
+    break;
+case 4:
+
+    anadir_datos(vec_c, tam_v);
+    guardar_datos(vec_c, tam_v);
+    break;
+case 5:
+    puts("Sea n, los n ultimos enteros a eliminar");
+    puts("Introduce 0 para no eliminar ninguno, u otro numero");
+    fflush(stdin);
+    scanf("%i", &aux);
+
+    if(aux < *tam_v){
+        *tam_v -= aux;
+    }
+    guardar_datos(vec_c, tam_v);
+
+    break;
+case 6:
+    break;
+}
+}
+
+
+void anadir_datos(int * vec_c, int *tam_v){
+
+    puts("Vas a ir introduciendo enteros hasta que introduzcas un 121212");
+    int aux, i;
+    do{
+        printf("%i .- ", *tam_v+1);
+        fflush(stdin);
+        scanf("%i", &aux);
+        if(aux!=121212){
+            *tam_v = *tam_v + 1;
+            vec_c[*tam_v-1] = aux;
+        }
+
+    }while(aux != 121212);
+    *tam_v = *tam_v;
+}
+
+void valores(int *minpos, int *modpos, int *divpos, int *cesar){
+    int n;
+    system("cls");
+    puts("Introduce min");
+    fflush(stdin);
+    scanf("%i",&n);
+    *minpos = n;
+
+    system("cls");
+    puts("Introduce mod");
+    fflush(stdin);
+    scanf("%i",&n);
+    *modpos = n;
+
+    system("cls");
+    puts("Introduce div");
+    fflush(stdin);
+    scanf("%i",&n);
+    *divpos = n;
+
+    system("cls");
+    puts("Introduce ces");
+    fflush(stdin);
+    scanf("%i",&n);
+    *cesar = n;
+
+}
+
+void cifrar(int *vec_c, int tam_v){
+    int i;
+    FILE *f;
+    f = fopen("Mensajecif.txt","w");
+    for (i = 0; i < tam_v; i++)
+    {
+        vec_c[i] = cifrado(vec_c[i],i);
+        fprintf(f,"%i\n",vec_c[i]);
+    }
+    fclose(f);
+}
+
+int cargar_bueno(int * vec_c)
+{
+
+    FILE *f;
+    f = fopen("Mensaje.txt", "r");
+    char c;
+    int tam_v = 0;
+    while((c=fgetc(f))!= '*')
+    {
+        vec_c[tam_v] = c;
+        tam_v++;
+    }
+    fclose(f);
+    return tam_v;
+
+}
+
+void guardar_vec(int *vec, int tam_v){
+
+    int i;
+    FILE *f;
+    f = fopen("cif.txt","w");
+    for ( i = 0; i < tam_v; i++) fprintf(f,"%i\n", vec[i]);
+    fclose(f);
+}
+
+int des_cifrado(int num, int pos, int minpos, int modpos, int divpos, int cesar)
+{
+    if(pos % modpos < minpos)
+        num--;
+
+    num -= pos/divpos;
+
+    num = descifrado_cesar(num, cesar);
+
+    return num;
+}
+
+int descifrado_cesar(int num, int cesar)
+{
+
+    num -= cesar;
+    while (num < 10)
+    {
+        num += ('z'-10);
+    }
+    return num;
+}
+
+int cifrado(int num, int pos)
+{
+
+    num = cifrado_cesar(num);
+
+    num += pos/DIVPOS;
+
+    if(pos % MODPOS < MINPOS)
+        num++;
+
+    return num;
+}
+
+int cifrado_cesar(int num)
+{
+
+    num += CESAR;
+    while (num > 'z')
+    {
+        num -= ('z'-10);
+    }
+    return num;
+}

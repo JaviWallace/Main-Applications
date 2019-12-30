@@ -1,0 +1,24 @@
+18. El juego de la vida (Life) lo desarrolló J.H. Conway, un matemático británico. Se 
+dibuja una cuadrícula rectangular de tamaño MxN (por ejemplo, 30x20). Cada cuadrito 
+representa un ser, que puede estar vivo o muerto. Cada cuadro está rodeado de un total 
+de 8 vecinos (2 en horizontal, 2 en vertical y 4 en las diagonales). 
+Se crea una población 
+inicial, que denominaremos T0 asignando un estado a cada ser (vivo o muerto). A partir
+ de la población T0 se puede obtener la siguiente generación (T1) mediante las reglas
+ siguientes :
+
+ Si un ser está vivo, y está rodeado de menos de 2 seres vivos, muere de
+ soledad.
+
+ Si un ser está vivo, y está rodeado de más de 3 seres vivos, muere debido a la 
+masificación.
+
+ Por tanto, si un ser está vivo, y está rodeado de 2 ó 3 seres vivos, permanece 
+vivo.
+
+ Por último, si un ser está muerto, y está rodeado de exactamente 3 vecinos, 
+renace a la siguiente generación. En caso contrario, permanece muerto.
+De forma sucesiva se calculan las diferentes generaciones. (T0, T1, T2, T3, etc.)
+
+
+Escribir un programa simulando el juego de la vida.

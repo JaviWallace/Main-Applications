@@ -1,0 +1,95 @@
+# depslib dependency file v1.0
+1552741466 source:c:\users\javi wallace\documents\principal\universidad\1º\mp\proyecto\jareñodoradojavier-modularidad2\r_jugadores.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<windows.h>
+
+1553777096 source:c:\users\javi wallace\documents\principal\universidad\1º\mp\proyecto\jareñodoradojavier-modularidad2\esinait\principal.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Carga_Mod.h"
+	"Config_Mod.h"
+
+1553271051 c:\users\javi wallace\documents\principal\universidad\1º\mp\proyecto\jareñodoradojavier-modularidad2\esinait\r_jugador.h
+
+1553271101 source:c:\users\javi wallace\documents\principal\universidad\1º\mp\proyecto\jareñodoradojavier-modularidad2\esinait\r_jugadores.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<windows.h>
+	"r_jugador.h"
+
+1554913533 source:c:\users\javi wallace\documents\principal\universidad\1º\mp\proyecto\jareñodoradojavier-modularidad2\esinait\jugadores_mod.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<windows.h>
+	"Carga_Mod.h"
+	"Jugadores_Mod.h"
+
+1554144329 c:\users\javi wallace\documents\principal\universidad\1º\mp\proyecto\jareñodoradojavier-modularidad2\esinait\jugadores_mod.h
+
+1556050445 source:c:\users\javi wallace\documents\principal\universidad\1º\mp\proyecto\jareñodoradojavier-modularidad2\esinait\carga_mod.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<windows.h>
+	"Carga_Mod.h"
+
+1555603810 c:\users\javi wallace\documents\principal\universidad\1º\mp\proyecto\jareñodoradojavier-modularidad2\esinait\carga_mod.h
+
+1553455977 source:c:\users\javi wallace\documents\principal\universidad\1º\mp\proyecto\jareñodoradojavier-modularidad2\esinait\admin.c
+	<stdio.h>
+	<stdlib.h>
+	"configuracion_JF.h"
+	"admin.h"
+
+1553455977 c:\users\javi wallace\documents\principal\universidad\1º\mp\proyecto\jareñodoradojavier-modularidad2\esinait\configuracion_jf.h
+
+1553455977 c:\users\javi wallace\documents\principal\universidad\1º\mp\proyecto\jareñodoradojavier-modularidad2\esinait\admin.h
+
+1553456401 source:c:\users\javi wallace\documents\principal\universidad\1º\mp\proyecto\jareñodoradojavier-modularidad2\esinait\configuracion_jf.c
+	<stdio.h>
+	<stdlib.h>
+	"Carga_Mod.h"
+
+1553541083 source:c:\users\javi wallace\documents\principal\universidad\1º\mp\proyecto\jareñodoradojavier-modularidad2\esinait\config_mod.c
+	<stdio.h>
+	<stdlib.h>
+	"Carga_Mod.h"
+	"Config_Mod.h"
+
+1553541106 c:\users\javi wallace\documents\principal\universidad\1º\mp\proyecto\jareñodoradojavier-modularidad2\esinait\config_mod.h
+
+1556032944 source:c:\users\javi wallace\documents\principal\universidad\1º\mp\proyecto\jareñodoradojavier-modularidad2\esinait\principal_mod.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<math.h>
+	<time.h>
+	"Carga_Mod.h"
+	"Menu_Mod.h"
+	"juego_Mod.h"
+
+1556104107 source:c:\users\javi wallace\documents\principal\universidad\1º\mp\proyecto\jareñodoradojavier-modularidad2\esinait\juego_mod.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<math.h>
+	"Carga_Mod.h"
+	"Juego_Mod.h"
+
+1555604460 c:\users\javi wallace\documents\principal\universidad\1º\mp\proyecto\jareñodoradojavier-modularidad2\esinait\juego_mod.h
+
+1555846585 source:c:\users\javi wallace\documents\principal\universidad\1º\mp\proyecto\jareñodoradojavier-modularidad2\esinait\menu_mod.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<windows.h>
+	"Carga_Mod.h"
+	"Menu_Mod.h"
+
+1555843370 c:\users\javi wallace\documents\principal\universidad\1º\mp\proyecto\jareñodoradojavier-modularidad2\esinait\menu_mod.h
+

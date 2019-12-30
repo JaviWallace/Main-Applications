@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1559682949 source:c:\users\javi wallace\documents\principal\universidad\1º\ip\juegos\ahorcado\ahorcado\main.c
+	<stdio.h>
+	<string.h>
+	<conio.h>
+

@@ -1,0 +1,8 @@
+pqcor/Paco/0/100/0/OFF/315/18/1/ADM/1234/1/5
+javi/javi/0/100/60/OFF/300/14/1/ADM/0000/1/1
+jesus/jesus/0/100/0/OFF/200/17/0/ADM/0000/2/5
+jf/jf/0/100/0/OFF/65/17/1/ADM/0000/3/5
+luis/luis/1/100/0/OFF/200/15/2/ADM/0000/2/5
+admin/admin/0/100/0/OFF/200/1/0/ADM/0000/1/5
+usuario/usuario/0/100/0/OFF/200/0/0/JGD/0000/0/5
+prueba/prueba/0/100/0/OFF/200/2/0/JGD/prueba/4/5
